@@ -103,3 +103,17 @@ Modelo elegido con validación: **Bosque aleatorio**. Resultado en prueba: **MAE
 | Evaluación | `src/evaluate.py` | #6 | ec35341 |
 | Archivo principal | `train.py` | #7 | b9c6e68 |
 | Dependencias | `requirements.txt`, `.gitignore` | #8 | 5de288b |
+
+## Reflexion final
+
+¿Qué implementaste y qué decisión técnica tomaste?
+Reorganicé mi notebook de viviendas en un proyecto modular: configuración, carga, división, preprocesamiento, modelos, evaluación y un train.py que coordina todo. La decisión principal fue meter crear_variables dentro del Pipeline junto con el escalado y la codificación. Así todo se ajusta solo con entrenamiento y las mismas transformaciones se aplican solas a validación y prueba, sin riesgo de fuga de información ni de olvidar aplicarlas.
+
+¿Cómo verificaste tu aportación?
+Probé cada módulo con un comando corto antes de subirlo (por ejemplo, que la división diera 12259, 4087 y 4087 filas). Al final comparé la salida de train.py con mi notebook original y coincidió exactamente (MAE de prueba 33,697.54). También cloné el repo en una carpeta limpia y seguí mi README para confirmar que corría desde cero.
+
+¿Qué observaste o aprendiste al revisar el trabajo de otra persona?
+lo hice por mi propia cuenta aprendi que llevaba cada codigo por el repositorio del profesor.
+
+¿Qué mejorarías en la siguiente versión?
+Ajustaría hiperparámetros con validación, porque ahora usan valores fijos. También ajustaría el modelo final con entrenamiento y validación juntos antes de evaluar en prueba, agregaría pruebas automáticas a cada módulo y probaría una división por regiones geográficas, ya que la aleatoria no mide el desempeño en zonas completamente nuevas.
